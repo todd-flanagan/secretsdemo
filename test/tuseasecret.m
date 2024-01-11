@@ -9,6 +9,7 @@ classdef tuseasecret < matlab.unittest.TestCase
 
         function valueTest(testCase)
             testCase.verifyEqual("secretValue", useasecret());
+            testCase.verifyEqual(fakeGetSecret("isasecret"), "testvale");
         end
     end
 
