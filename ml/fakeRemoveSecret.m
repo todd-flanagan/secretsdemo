@@ -9,7 +9,7 @@ end
             secrets = s.secrets.remove(name);
             save("fakevault.mat", "secrets");
         else
-            e = MException("FakeSecrets:NoSecrets", "No value for " + string(name));
+            e = MException("FakeSecrets:NoSecretValue", "No value for " + string(name));
             throw(e);
         end
     else

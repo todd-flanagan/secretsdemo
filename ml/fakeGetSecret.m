@@ -8,7 +8,7 @@ end
         if s.secrets.isKey(name)
             v = s.secrets(name);
         else
-            e = MException("FakeSecrets:NoSecrets", "No value for " + string(name));
+            e = MException("FakeSecrets:NoSecretValue", "No value for " + string(name));
             throw(e);
         end
     else
