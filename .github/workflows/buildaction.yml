@@ -13,4 +13,5 @@ jobs:
         uses: matlab-actions/run-build@v1
         with:
           tasks: test
-        env: isasecret: ${{ secrets.DBUSER }}
+        env: 
+          isasecret: ${{ secrets.DBUSER }}
