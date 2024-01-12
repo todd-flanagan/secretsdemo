@@ -8,7 +8,7 @@ classdef tuseasecret < matlab.unittest.TestCase
         % Test methods
 
         function valueTest(testCase)
-            disp(getenv("isasecret"));
+            disp("secret value[" + getenv("isasecret") + "]");
             testCase.verifyEqual("secretValue", useasecret());
         end
     end
