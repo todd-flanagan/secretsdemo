@@ -15,3 +15,5 @@ jobs:
           tasks: test
         env: 
           isasecret: ${{ secrets.DBUSER }}
+          SECRET_NAME: ${{ secrets.SECRET_NAME }}
+ 
