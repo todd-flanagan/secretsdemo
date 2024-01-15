@@ -5,7 +5,7 @@ end
 
     if exist("fakevault.mat", "file")
         s = load("fakevault", "secrets");
-        if s.secrets.isKey(name)
+        if s.secrets.isKey(name) && isempty(getenv(name))
             %override from the environment first
             v = getenv(name);
             if isempty(v)
