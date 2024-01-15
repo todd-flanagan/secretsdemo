@@ -8,17 +8,27 @@ classdef tml < matlab.unittest.TestCase
         % Test methods
 
         function getSecretTest(testCase)
+            name = "isasecret";
+            notAName = "notasecret";
             if exist("fakevault.mat", "file")
                 delete("fakevault.mat")
             end
-            name = "isasecret";
-            notAName = "notasecret";
+            v = getenv(name);
+            if isempty(v)
+                o = onCleanup(@()unsetenv(name));
+            else
+                o = onCleanup(@()setenv(name, v));
+            end
             testCase.verifyError(@()fakeGetSecret(name), "FakeSecrets:NoSecrets");
 
             copyfile("data/fakevault.mat.data", "fakevault.mat");
             testCase.verifyError(@()fakeGetSecret(notAName), "FakeSecrets:NoSecretValue");
 
             testCase.verifyEqual(fakeGetSecret(name), "testvalue");
+
+            setenv(name, "overridden");
+            testCase.verifyEqual(fakeGetSecret(name), "overridden");
+
         end
         function setSecretTest(testCase)
             

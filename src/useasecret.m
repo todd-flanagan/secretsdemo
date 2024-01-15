@@ -1,2 +1,2 @@
 function s = useasecret()
-   s = "secretValue";
+   s = fakeGetSecret("SECRET_NAME");

@@ -6,7 +6,12 @@ end
     if exist("fakevault.mat", "file")
         s = load("fakevault", "secrets");
         if s.secrets.isKey(name)
-            v = s.secrets(name);
+            %override from the environment first
+            v = getenv(name);
+            if isempty(v)
+                v = s.secrets(name);
+            end
+            v = string(v);
         else
             e = MException("FakeSecrets:NoSecretValue", "No value for " + string(name));
             throw(e);
