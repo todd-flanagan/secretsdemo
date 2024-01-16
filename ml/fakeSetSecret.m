@@ -1,4 +1,4 @@
-function setSecret(name, value)
+function setSecret(name)
 
 prompt = {'Enter a value:'};
 dlgtitle = 'Set a secret';
@@ -12,7 +12,7 @@ if ~isempty(answer)
     % Retrieve the value entered by the user
     value = answer{1};
     if exist("fakevault.mat", "file")
-        s = load("fakevault", secrets);
+        s = load("fakevault", "secrets");
         secrets = s.secrets;
     else
         secrets = dictionary;
