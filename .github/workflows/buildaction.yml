@@ -14,5 +14,5 @@ jobs:
         with:
           tasks: test
         env: 
-          SECRET_NAME: ${{ secrets.SECRET_NAME }}
+          SECRET_NAME: ${{ secrets.NEW_SECRET }}
  
