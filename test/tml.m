@@ -9,6 +9,7 @@ classdef tml < matlab.unittest.TestCase
 
         function getSecretTest(testCase)
             name = "isasecret";
+            
             notAName = "notasecret";
             if exist("fakevault.mat", "file")
                 delete("fakevault.mat")
